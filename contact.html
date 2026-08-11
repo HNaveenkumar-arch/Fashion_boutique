@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Boutique - Navbar</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+
+    <header class="header" id="header">
+
+        <div class="top-bar">
+            <div class="marquee-wrapper">
+                <div class="marquee-content">
+                    <span><i class="fa-regular fa-envelope"></i> info@thestacklt.com</span>
+                    <span><i class="fa-solid fa-phone"></i> +91 9876543210</span>
+                    <span><i class="fa-solid fa-location-dot"></i> MMR Complex, Chinna Thirupathi, Salem</span>
+
+                    <span><i class="fa-regular fa-envelope"></i> info@thestackly.com</span>
+                    <span><i class="fa-solid fa-phone"></i> +91 9876543210</span>
+                    <span><i class="fa-solid fa-location-dot"></i> MMR Complex, Chinna Thirupathi, Salem</span>
+                </div>
+            </div>
+            <div class="top-social">
+                <a href="404page.html"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="404page.html"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="404page.html"><i class="fa-brands fa-instagram"></i></a>
+                <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+
+        <nav class="main-nav">
+            <div class="nav-container">
+
+
+                <a href="index.html" class="logo">
+                    <img src="./asset/stackly-logo (1).webp" alt="logo">
+                </a>
+
+
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                    </ul>
+
+
+                    <div class="mobile-cta">
+                        <a href="login.html" class="btn btn-outline2">Login</a>
+                        <a href="register.html" class="btn btn-primary2">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="nav-cta">
+                    <a href="login.html" class="btn btn-outline2">Login</a>
+                    <a href="register.html" class="btn btn-primary2">Get Started</a>
+                </div>
+
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="contact-hero-section" id="contact-hero">
+
+        <div class="ct-hero-bg gs-ct-parallax"></div>
+
+        <div class="ct-hero-overlay"></div>
+
+        <div class="ct-vertical-text gs-ct-reveal">
+            GET IN TOUCH
+        </div>
+
+        <div class="ct-hero-content">
+
+            <div class="ct-breadcrumb gs-ct-reveal">
+                <a href="index.html">Home</a> <span class="divider">/</span> <span>Contact</span>
+            </div>
+
+
+            <h1 class="ct-hero-title gs-ct-reveal">Let’s Create <br>Something Beautiful</h1>
+
+
+            <p class="ct-hero-desc gs-ct-reveal">
+                Whether you’re looking for your next signature piece or a personal styling experience, we’d love to hear
+                from you.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="contact-form-section" id="editorial-form">
+        <div class="cf-container">
+
+
+            <div class="cf-left gs-cf-reveal">
+                <h2 class="cf-title">Tell Us What You’re Looking For</h2>
+                <p class="cf-subtitle">Our team will get back to you within 24 hours.</p>
+            </div>
+
+
+            <div class="cf-right">
+
+                <form id="luxury-contact-form" class="cf-form" novalidate>
+
+
+                    <div class="cf-input-group gs-cf-field">
+                        <input type="text" id="cf-name" name="name" class="cf-input" placeholder=" " required>
+                        <label for="cf-name" class="cf-label">Your Name</label>
+                        <span class="cf-error">Please enter a valid name (Letters only).</span>
+                    </div>
+
+
+                    <div class="cf-input-group gs-cf-field">
+                        <input type="email" id="cf-email" name="email" class="cf-input" placeholder=" " required>
+                        <label for="cf-email" class="cf-label">Email Address</label>
+                        <span class="cf-error">Please enter a valid email address.</span>
+                    </div>
+
+
+                    <div class="cf-input-group gs-cf-field">
+                        <input type="tel" id="cf-phone" name="phone" class="cf-input" placeholder=" " maxlength="10"
+                            required>
+                        <label for="cf-phone" class="cf-label">Phone Number (+91)</label>
+                        <span class="cf-error">Phone number must be exactly 10 digits.</span>
+                    </div>
+
+
+                    <div class="cf-input-group gs-cf-field">
+
+                        <select id="cf-service" name="service" class="cf-input cf-select" required>
+                            <option value="" disabled selected hidden></option>
+                            <option value="Personal Styling">Personal Styling</option>
+                            <option value="Custom Tailoring">Custom Tailoring</option>
+                            <option value="Bridal Wear">Bridal & Evening Wear</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="cf-service" class="cf-label">What can we help with?</label>
+                        <span class="cf-error">Please select a service.</span>
+                    </div>
+
+
+                    <div class="cf-input-group gs-cf-field">
+                        <textarea id="cf-message" name="message" class="cf-input cf-textarea" placeholder=" " rows="4"
+                            required></textarea>
+                        <label for="cf-message" class="cf-label">Your Message</label>
+                        <span class="cf-error">Message must be at least 10 characters long.</span>
+                    </div>
+
+
+                    <div class="cf-submit-wrapper gs-cf-field">
+                        <button type="submit" class="btn-primary magnetic-btn cf-submit-btn">Send Enquiry <span
+                                class="arrow">&rarr;</span></button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="boutique-map-section" id="visit-us">
+        <div class="bm-container">
+
+
+            <div class="bm-map-wrapper gs-bm-reveal">
+
+
+                <div class="bm-iframe-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.161609877049!2d78.17140487386634!3d11.682956588526372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1781692635052!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="cm-iframe dark-mode-map">
+                    </iframe>
+                </div>
+
+
+                <div class="bm-glass-card gs-bm-card">
+                    <h3 class="bm-glass-title">Visit Our Boutique</h3>
+
+                    <div class="bm-info-list">
+
+                        <div class="bm-info-item">
+                            <span class="bm-icon">📍</span>
+                            <p>100 Greenfield Avenue<br>Chennai, Tamil Nadu</p>
+                        </div>
+
+                        <div class="bm-info-item">
+                            <span class="bm-icon">🕒</span>
+                            <p>Mon – Sat<br>10:00 AM – 8:00 PM</p>
+                        </div>
+                    </div>
+
+
+                    <a href="https://goo.gl/maps/YOUR_LINK_HERE" target="_blank" class="bm-glass-btn">Get Directions
+                        <span class="arrow">&rarr;</span></a>
+                </div>
+
+
+                <div class="bm-animated-pin">
+                    <div class="pin-dot"></div>
+                    <div class="pin-pulse"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="contact-tiles-section" id="contact-info">
+        <div class="ctiles-container">
+
+
+            <div class="ctiles-header gs-ctiles-reveal">
+                <h2 class="ctiles-title">We’re Always Here to Help</h2>
+            </div>
+
+
+            <div class="ctiles-grid">
+
+
+                <div class="ctile-card ct-card-1 gs-ctile-card" data-bg="./asset/s8.webp">
+                    <div class="ctile-spotlight"></div>
+                    <div class="ctile-bg"></div>
+                    <div class="ctile-content">
+                        <div class="ctile-icon">✉</div>
+                        <h3 class="ctile-name">Email</h3>
+                        <div class="ctile-detail-mask">
+                            <p class="ctile-detail">info@thestackly.com</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ctile-card ct-card-2 gs-ctile-card" data-bg="./asset/s5.webp">
+                    <div class="ctile-spotlight"></div>
+                    <div class="ctile-bg"></div>
+                    <div class="ctile-content">
+                        <div class="ctile-icon">☎</div>
+                        <h3 class="ctile-name">Phone</h3>
+                        <div class="ctile-detail-mask">
+                            <p class="ctile-detail">+91 98765 43210</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ctile-card ct-card-3 gs-ctile-card" data-bg="./asset/s4.webp">
+                    <div class="ctile-spotlight"></div>
+                    <div class="ctile-bg"></div>
+                    <div class="ctile-content">
+                        <div class="ctile-icon">📍</div>
+                        <h3 class="ctile-name">Boutique</h3>
+                        <div class="ctile-detail-mask">
+                            <p class="ctile-detail">MMR Complex, Chinna Thirupathi, Salem</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ctile-card ct-card-4 gs-ctile-card" data-bg="./asset/s2.webp">
+                    <div class="ctile-spotlight"></div>
+                    <div class="ctile-bg"></div>
+                    <div class="ctile-content">
+                        <div class="ctile-icon">◷</div>
+                        <h3 class="ctile-name">Opening Hours</h3>
+                        <div class="ctile-detail-mask">
+                            <p class="ctile-detail">Mon – Sat &middot; 10 AM – 8 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="ctiles-socials gs-ctiles-reveal">
+                <a href="404page.html" class="social-link magnetic-social">Instagram</a>
+                <span class="social-dot">·</span>
+                <a href="404page.html" class="social-link magnetic-social">Facebook</a>
+                <span class="social-dot">·</span>
+                <a href="404page.html" class="social-link magnetic-social">Pinterest</a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="cinematic-cta-section" id="final-cta">
+
+
+        <div class="c-cta-bg gs-c-parallax"></div>
+
+
+        <div class="c-cta-overlay"></div>
+
+
+        <div class="c-cta-content">
+            <h2 class="c-cta-title gs-c-reveal">Your Next Look Starts Here.</h2>
+            <p class="c-cta-subtitle gs-c-reveal">Visit us, speak with our stylists, and discover a wardrobe made
+                uniquely for you.</p>
+
+
+            <div class="c-cta-buttons gs-c-reveal">
+                <a href="404page.html" class="btn-primary magnetic-btn">Book a Styling Session <span
+                        class="arrow">&rarr;</span></a>
+                <a href="404page.html" class="btn-outline magnetic-btn">Explore Collection <span
+                        class="arrow">&rarr;</span></a>
+            </div>
+        </div>
+
+
+        <div class="c-cta-marquee gs-c-reveal">
+            <div class="c-marquee-track">
+                <span>STYLE &bull; ELEGANCE &bull; CRAFT &bull; EXPERIENCE &bull;&nbsp;</span>
+                <span>STYLE &bull; ELEGANCE &bull; CRAFT &bull; EXPERIENCE &bull;&nbsp;</span>
+                <span>STYLE &bull; ELEGANCE &bull; CRAFT &bull; EXPERIENCE &bull;&nbsp;</span>
+                <span>STYLE &bull; ELEGANCE &bull; CRAFT &bull; EXPERIENCE &bull;&nbsp;</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+
+
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="./asset/stackly-logo (1).webp" alt="logo"></a>
+                    </div>
+                    <p>"Curating timeless elegance and modern trends. Your ultimate destination for premium fashion."
+                    </p>
+                    <div class="footer-socials">
+                        <a href="404page.html"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="404page.html"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404page.html"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                        <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Services</a></li>
+
+                        <li><a href="shop.html"><i class="fa-solid fa-chevron-right"></i> Shop Collection</a></li>
+                        <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Service</a></li>
+                        <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul class="footer-support">
+                        <li><i class="fa-regular fa-envelope"></i> info@thestackly.com</li>
+                        <li><i class="fa-solid fa-location-dot"></i> salem, Tamil Nadu</li>
+                        <li><i class="fa-solid fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fa-brands fa-whatsapp"></i> +91 98765 43210 (WhatsApp)</li>
+                        <li><i class="fa-regular fa-clock"></i> Mon - Sat: 9 AM - 8 PM</li>
+                        <li><i class="fa-solid fa-globe"></i> www.fashionboutique.com</li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>"Your next great style upgrade starts here! Subscribe for flash fashion deals."</p>
+
+                    <form id="newsletter-form" class="newsletter-form">
+                        <div class="input-group">
+                            <input type="text" id="email-input" placeholder="Enter your email" autocomplete="off">
+                            <button type="submit" id="join-btn">JOIN</button>
+                        </div>
+                        <span id="email-error" class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Please
+                            enter a valid email address.</span>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fashion Boutique. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404page.html">Terms & Conditions</a>
+                    <a href="404page.html">Privacy Policy</a>
+                    <a href="404page.html">Cookie Policy</a>
+                    <a href="404page.html">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            gsap.from(".gs-ct-reveal", {
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.2
+            });
+
+
+
+            gsap.to(".gs-ct-parallax", {
+                scrollTrigger: {
+                    trigger: ".contact-hero-section",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                },
+                y: "15%",
+                ease: "none"
+            });
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            gsap.from(".gs-cf-reveal", {
+                scrollTrigger: { trigger: ".contact-form-section", start: "top 80%" },
+                y: 40, opacity: 0, duration: 1, ease: "power3.out"
+            });
+
+            gsap.from(".gs-cf-field", {
+                scrollTrigger: { trigger: ".cf-right", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power2.out"
+            });
+
+
+            const form = document.getElementById('luxury-contact-form');
+            const nameInput = document.getElementById('cf-name');
+            const emailInput = document.getElementById('cf-email');
+            const phoneInput = document.getElementById('cf-phone');
+            const serviceInput = document.getElementById('cf-service');
+            const messageInput = document.getElementById('cf-message');
+
+
+
+            nameInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[0-9]/g, '');
+                clearError(this);
+            });
+
+
+            phoneInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                clearError(this);
+            });
+
+
+            emailInput.addEventListener('input', () => clearError(emailInput));
+            serviceInput.addEventListener('change', () => clearError(serviceInput));
+            messageInput.addEventListener('input', () => clearError(messageInput));
+
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                let isValid = true;
+
+
+                if (nameInput.value.trim() === '') {
+                    showError(nameInput);
+                    isValid = false;
+                }
+
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value.trim())) {
+                    showError(emailInput);
+                    isValid = false;
+                }
+
+
+                if (phoneInput.value.trim().length !== 10) {
+                    showError(phoneInput);
+                    isValid = false;
+                }
+
+
+                if (serviceInput.value === '') {
+                    showError(serviceInput);
+                    isValid = false;
+                }
+
+
+                if (messageInput.value.trim().length < 10) {
+                    showError(messageInput);
+                    isValid = false;
+                }
+
+
+                if (isValid) {
+
+                    const btn = form.querySelector('.cf-submit-btn');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = 'Message Sent ✓';
+                    window.location.href = '404page.html'
+                    btn.style.backgroundColor = 'green';
+                    btn.style.borderColor = 'green';
+
+
+
+
+                    setTimeout(() => {
+                        form.reset();
+                        btn.innerHTML = originalText;
+                        btn.style.backgroundColor = '';
+                        btn.style.borderColor = '';
+                    }, 3000);
+                }
+            });
+
+
+            function showError(element) {
+                element.parentElement.classList.add('has-error');
+            }
+
+            function clearError(element) {
+                element.parentElement.classList.remove('has-error');
+            }
+
+
+            if (window.innerWidth > 768) {
+                const magneticBtns = document.querySelectorAll('.magnetic-btn');
+                magneticBtns.forEach(btn => {
+                    btn.addEventListener('mousemove', (e) => {
+                        const rect = btn.getBoundingClientRect();
+                        const x = e.clientX - (rect.left + rect.width / 2);
+                        const y = e.clientY - (rect.top + rect.height / 2);
+                        gsap.to(btn, { x: x * 0.4, y: y * 0.4, duration: 0.4, ease: "power2.out" });
+                    });
+                    btn.addEventListener('mouseleave', () => {
+                        gsap.to(btn, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
+                    });
+                });
+            }
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            gsap.from(".gs-bm-reveal", {
+                scrollTrigger: {
+                    trigger: ".boutique-map-section",
+                    start: "top 80%"
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+
+
+            gsap.from(".gs-bm-card", {
+                scrollTrigger: {
+                    trigger: ".boutique-map-section",
+                    start: "top 70%"
+                },
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                delay: 0.3,
+                ease: "back.out(1.2)"
+            });
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            gsap.from(".gs-ctiles-reveal", {
+                scrollTrigger: { trigger: ".contact-tiles-section", start: "top 80%" },
+                y: 40, opacity: 0, duration: 1, ease: "power3.out"
+            });
+
+            gsap.from(".gs-ctile-card", {
+                scrollTrigger: { trigger: ".ctiles-grid", start: "top 85%" },
+                y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power2.out"
+            });
+
+
+            const ctileCards = document.querySelectorAll('.ctile-card');
+
+            ctileCards.forEach(card => {
+
+                const bgDiv = card.querySelector('.ctile-bg');
+                const bgUrl = card.getAttribute('data-bg');
+                if (bgDiv && bgUrl) {
+                    bgDiv.style.backgroundImage = `url(${bgUrl})`;
+                }
+
+
+                if (window.innerWidth > 768) {
+                    const spotlight = card.querySelector('.ctile-spotlight');
+                    let xTo = gsap.quickTo(spotlight, "left", { duration: 0.3, ease: "power3" });
+                    let yTo = gsap.quickTo(spotlight, "top", { duration: 0.3, ease: "power3" });
+
+                    card.addEventListener("mousemove", (e) => {
+                        const rect = card.getBoundingClientRect();
+                        xTo(e.clientX - rect.left);
+                        yTo(e.clientY - rect.top);
+                    });
+                }
+            });
+
+
+            if (window.innerWidth > 768) {
+                const magneticSocials = document.querySelectorAll('.magnetic-social');
+                magneticSocials.forEach(link => {
+                    link.addEventListener('mousemove', (e) => {
+                        const rect = link.getBoundingClientRect();
+                        const x = e.clientX - (rect.left + rect.width / 2);
+                        const y = e.clientY - (rect.top + rect.height / 2);
+                        gsap.to(link, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: "power2.out" });
+                    });
+                    link.addEventListener('mouseleave', () => {
+                        gsap.to(link, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
+                    });
+                });
+            }
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            gsap.from(".gs-c-reveal", {
+                scrollTrigger: {
+                    trigger: ".cinematic-cta-section",
+                    start: "top 75%"
+                },
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+
+            gsap.to(".gs-c-parallax", {
+                scrollTrigger: {
+                    trigger: ".cinematic-cta-section",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                },
+                y: "20%",
+                ease: "none"
+            });
+
+
+            if (window.innerWidth > 768) {
+                const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+                magneticBtns.forEach(btn => {
+                    btn.addEventListener('mousemove', (e) => {
+                        const rect = btn.getBoundingClientRect();
+                        const x = e.clientX - (rect.left + rect.width / 2);
+                        const y = e.clientY - (rect.top + rect.height / 2);
+
+
+                        gsap.to(btn, {
+                            x: x * 0.4,
+                            y: y * 0.4,
+                            duration: 0.4,
+                            ease: "power2.out"
+                        });
+                    });
+
+                    btn.addEventListener('mouseleave', () => {
+
+                        gsap.to(btn, {
+                            x: 0,
+                            y: 0,
+                            duration: 0.8,
+                            ease: "elastic.out(1, 0.3)"
+                        });
+                    });
+                });
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>

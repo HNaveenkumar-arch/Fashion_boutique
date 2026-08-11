@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Luxury Boutique</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-orange: #F26B0F;
+            --text-light: #FFFFFF;
+            --text-gray: #CCCCCC;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --bg-dark: #080808;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            overflow: hidden;
+        }
+
+
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: grayscale(30%);
+            animation: slowBreath 30s infinite alternate linear;
+        }
+
+        @keyframes slowBreath {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(8, 8, 8, 0.6) 0%, rgba(8, 8, 8, 0.95) 100%);
+            z-index: 2;
+        }
+
+
+        .card-404 {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 650px;
+            background: rgba(25, 25, 25, 0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px auto;
+            background: linear-gradient(135deg, var(--primary-orange), #d15600);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #FFF;
+            box-shadow: 0 10px 30px rgba(242, 107, 15, 0.4);
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        .title-404 {
+            font-family: var(--font-heading);
+            font-size: 120px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(to right, #FFFFFF, #999999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--text-light);
+            margin: 15px 0 20px 0;
+        }
+
+        .description {
+            font-family: var(--font-body);
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 0 auto 40px auto;
+        }
+
+
+        .btn-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            outline: none;
+        }
+
+
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid transparent;
+        }
+
+        .btn-ghost:hover {
+            color: var(--primary-orange);
+        }
+
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+
+        .btn-ghost:hover i {
+            transform: translateX(-5px);
+        }
+
+        .btn-outline:hover i {
+            transform: translateX(-5px);
+        }
+
+        .btn i {
+            transition: transform 0.3s ease;
+        }
+
+
+        @media (max-width: 768px) {
+            .card-404 {
+                padding: 40px 20px;
+                border-radius: 20px;
+            }
+
+            .title-404 {
+                font-size: 80px;
+            }
+
+            .subtitle {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .btn-group {
+                flex-direction: column-reverse;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 15px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper" id="scene">
+
+
+        <div class="bg-image gs-parallax"></div>
+        <div class="bg-overlay"></div>
+
+
+        <div class="card-404" id="glass-card">
+
+            <div class="icon-wrapper gs-reveal">
+                <i class="fa-solid fa-exclamation"></i>
+            </div>
+
+            <h1 class="title-404 gs-reveal">404</h1>
+            <h2 class="subtitle gs-reveal">Page Not Found</h2>
+
+            <p class="description gs-reveal">
+                Sorry, the page you're looking for doesn't exist, has been moved, or the URL may be incorrect. Please
+                check the address or use one of the options below.
+            </p>
+
+            <div class="btn-group gs-reveal">
+
+                <button onclick="history.back()" class="btn btn-outline magnetic-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Go Back
+                </button>
+
+                <a href="index.html" class="btn btn-ghost magnetic-btn">
+                    <i class="fa-solid fa-house"></i> Go To Home
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            const tl = gsap.timeline();
+
+            tl.to("#glass-card", {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "power3.out"
+            })
+                .from(".gs-reveal", {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out"
+                }, "-=0.6"); 
+
+
+            if (window.innerWidth > 768) {
+                const card = document.getElementById("glass-card");
+                const wrapper = document.getElementById("scene");
+                const bg = document.querySelector(".gs-parallax");
+
+                wrapper.addEventListener("mousemove", (e) => {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+
+                    gsap.to(card, {
+                        rotationY: -xAxis,
+                        rotationX: yAxis,
+                        ease: "power1.out",
+                        duration: 0.5,
+                        transformPerspective: 1000
+                    });
+
+
+                    gsap.to(bg, {
+                        x: xAxis * 1.5,
+                        y: yAxis * 1.5,
+                        ease: "power1.out",
+                        duration: 0.5
+                    });
+                });
+
+
+                wrapper.addEventListener("mouseleave", () => {
+                    gsap.to(card, {
+                        rotationY: 0,
+                        rotationX: 0,
+                        ease: "power3.out",
+                        duration: 1
+                    });
+                    gsap.to(bg, {
+                        x: 0,
+                        y: 0,
+                        ease: "power3.out",
+                        duration: 1
+                    });
+                });
+
+
+                const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+                magneticBtns.forEach(btn => {
+                    btn.addEventListener('mousemove', (e) => {
+                        const rect = btn.getBoundingClientRect();
+                        const x = e.clientX - (rect.left + rect.width / 2);
+                        const y = e.clientY - (rect.top + rect.height / 2);
+
+                        gsap.to(btn, {
+                            x: x * 0.4,
+                            y: y * 0.4,
+                            duration: 0.4,
+                            ease: "power2.out"
+                        });
+                    });
+
+                    btn.addEventListener('mouseleave', () => {
+                        gsap.to(btn, {
+                            x: 0,
+                            y: 0,
+                            duration: 0.8,
+                            ease: "elastic.out(1, 0.3)"
+                        });
+                    });
+                });
+            }
+
+        });
+    </script>
+</body>
+
+</html>

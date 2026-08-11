@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Admin - Dashboard</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="boutique_dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+    <nav class="sidebar gs-sidebar" id="sidebar">
+
+
+        <div class="logo-container">
+            <h1>Boutique.</h1>
+            <p>Admin Portal</p>
+        </div>
+
+
+        <div class="nav-sections">
+            <a class="nav-item active" onclick="switchTab('tab-overview', this, 'Dashboard Overview')">
+                <i class="fas fa-th-large"></i> Dashboard Overview
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-products', this, 'Product Management')">
+                <i class="fas fa-tshirt"></i> Product Management
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-orders', this, 'Order Management')">
+                <i class="fas fa-box-open"></i> Order Management
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-appointments', this, 'Appointments')">
+                <i class="far fa-calendar-alt"></i> Appointments
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-reports', this, 'Reports & Analytics')">
+                <i class="fas fa-chart-line"></i> Reports & Analytics
+            </a>
+        </div>
+
+
+        <div class="sidebar-profile">
+            <div class="profile-avatar">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name" id="userNameDisplay">Admin</span>
+                <span class="profile-email" id="userEmailDisplay">admin@boutique.com</span>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <main class="main-content">
+
+
+        <header class="topbar gs-topbar">
+            <div class="topbar-left">
+                <div class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+                <h2 id="dynamic-page-title" class="page-title">Dashboard Overview</h2>
+            </div>
+
+
+            <div class="topbar-actions">
+                <a href="index.html" class="header-btn btn-home">
+                    <i class="fas fa-home"></i> <span>Back to Home</span>
+                </a>
+                <button onclick="logout()" class="header-btn btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </button>
+            </div>
+        </header>
+
+
+        <div class="dashboard-body">
+
+
+
+            <div id="tab-overview" class="content-tab active-tab">
+                <div class="overview-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-wallet"></i></div>
+                            <div class="kpi-info">
+                                <p>Total Revenue</p>
+                                <h3>$124,500</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +12%</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-box-open"></i></div>
+                            <div class="kpi-info">
+                                <p>Active Orders</p>
+                                <h3>34</h3>
+                                <span class="trend"><i class="fas fa-minus"></i> 0%</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-users"></i></div>
+                            <div class="kpi-info">
+                                <p>New Clients</p>
+                                <h3>18</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +5%</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget chart-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Revenue Analytics</h3>
+                            <select class="widget-select">
+                                <option>This Year</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="revenueChart" class="ko"></canvas>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget categories-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Top Categories</h3>
+                        </div>
+                        <div class="cat-list">
+                            <div class="cat-item">
+                                <div class="cat-info"><span>Bespoke Suits</span><span>65%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                            <div class="cat-item">
+                                <div class="cat-info"><span>Evening Gowns</span><span>45%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                            <div class="cat-item">
+                                <div class="cat-info"><span>Luxury Accessories</span><span>25%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget gs-card">
+                        <img src="./asset/s10.webp" alt="Autumn Collection">
+                        <div class="feature-overlay">
+                            <span class="badge">New Arrival</span>
+                            <h3>Autumn Elite Collection</h3>
+                            <p>Top performing campaign this week.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget orders-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Recent Orders</h3>
+                            <a href="404page.html" class="view-all">View All</a>
+                        </div>
+                        <table class="recent-table">
+                            <tr>
+                                <td>#ORD-092</td>
+                                <td>Elena V.</td>
+                                <td><span class="status pending">Fitting</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-091</td>
+                                <td>Marcus T.</td>
+                                <td><span class="status completed">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-090</td>
+                                <td>Sophia W.</td>
+                                <td><span class="status processing">Tailoring</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <div class="dash-widget appointments-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Today's Schedule</h3>
+                        </div>
+                        <div class="timeline">
+                            <div class="time-item">
+                                <div class="time">10:30 AM</div>
+                                <div class="desc">Consultation - Mr. James</div>
+                            </div>
+                            <div class="time-item">
+                                <div class="time">01:00 PM</div>
+                                <div class="desc">Final Fitting - Mrs. Clara</div>
+                            </div>
+                            <div class="time-item">
+                                <div class="time">03:30 PM</div>
+                                <div class="desc">Bridal Measurement</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-products" class="content-tab">
+                <div class="products-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-tags"></i></div>
+                            <div class="kpi-info">
+                                <p>Total Products</p>
+                                <h3>1,248</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +45 this week</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="kpi-info">
+                                <p>Low Stock</p>
+                                <h3>12</h3>
+                                <span class="trend" style="color: #E53E3E;"><i class="fas fa-arrow-down"></i> Needs
+                                    attention</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-gem"></i></div>
+                            <div class="kpi-info">
+                                <p>Categories</p>
+                                <h3>24</h3>
+                                <span class="trend positive"><i class="fas fa-check"></i> Fully updated</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget prod-feature-widget gs-card">
+                        <img src="./asset/s31.webp" alt="Featured Dress">
+                        <div class="feature-overlay">
+                            <span class="badge">Bestseller</span>
+                            <h3>Velvet Evening Gown</h3>
+                            <p>Stock: 8 left in inventory.</p>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="dash-widget prod-alerts-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Inventory Alerts</h3>
+                        </div>
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <i class="fas fa-exclamation-circle" style="color: #E53E3E;"></i>
+                                <div class="alert-info">
+                                    <h4>Silk Blouse - Navy</h4>
+                                    <p>Only 2 items left</p>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-exclamation-circle" style="color: #E53E3E;"></i>
+                                <div class="alert-info">
+                                    <h4>Classic Leather Belt</h4>
+                                    <p>Out of stock</p>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-info-circle" style="color: #D69E2E;"></i>
+                                <div class="alert-info">
+                                    <h4>Summer Fedora Hat</h4>
+                                    <p>5 items left</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget prod-table-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Recent Inventory</h3>
+                            <a href="404page.html" class="view-all">View Full Catalog</a>
+                        </div>
+                        <table class="recent-table product-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="prod-cell">
+                                        <img src="./asset/s40.webp" alt="Dress">
+                                        <span>A-Line Midi Dress</span>
+                                    </td>
+                                    <td>Dresses</td>
+                                    <td>$450</td>
+                                    <td><span class="status completed">In Stock</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="prod-cell">
+                                        <img src="./asset/s22.webp" alt="Suit">
+                                        <span>Bespoke Wool Suit</span>
+                                    </td>
+                                    <td>Menswear</td>
+                                    <td>$1,200</td>
+                                    <td><span class="status pending">Low Stock</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="prod-cell">
+                                        <img src="./asset/s24.webp" alt="Bag">
+                                        <span>Leather Tote Bag</span>
+                                    </td>
+                                    <td>Accessories</td>
+                                    <td>$850</td>
+                                    <td><span class="status completed">In Stock</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="dash-widget prod-brands-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Top Designers</h3>
+                        </div>
+                        <div class="brand-list">
+                            <div class="brand-item">
+                                <span class="brand-rank">1</span>
+                                <span class="brand-name">Maison Margiela</span>
+                                <span class="brand-sales">340 Items</span>
+                            </div>
+                            <div class="brand-item">
+                                <span class="brand-rank">2</span>
+                                <span class="brand-name">Armani Exchange</span>
+                                <span class="brand-sales">215 Items</span>
+                            </div>
+                            <div class="brand-item">
+                                <span class="brand-rank">3</span>
+                                <span class="brand-name">Gucci</span>
+                                <span class="brand-sales">180 Items</span>
+                            </div>
+                            <div class="brand-item">
+                                <span class="brand-rank">4</span>
+                                <span class="brand-name">Prada</span>
+                                <span class="brand-sales">150 Items</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-orders" class="content-tab">
+                <div class="orders-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-shopping-bag"></i></div>
+                            <div class="kpi-info">
+                                <p>Total Orders (This Month)</p>
+                                <h3>452</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +18%</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-truck-fast"></i></div>
+                            <div class="kpi-info">
+                                <p>Pending Dispatch</p>
+                                <h3>28</h3>
+                                <span class="trend" style="color: #D69E2E;"><i class="fas fa-clock"></i> In
+                                    processing</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-undo"></i></div>
+                            <div class="kpi-info">
+                                <p>Return Requests</p>
+                                <h3>3</h3>
+                                <span class="trend" style="color: #E53E3E;"><i class="fas fa-exclamation-circle"></i>
+                                    Needs review</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget order-table-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Latest Transactions</h3>
+                            <a href="404page.html" class="view-all">View All Orders</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="recent-table order-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Client Name</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="order-id">#BTQ-1045</td>
+                                        <td>Isabella Swan</td>
+                                        <td>Today, 10:45 AM</td>
+                                        <td>$2,450</td>
+                                        <td><span class="status pending">Tailoring</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id">#BTQ-1044</td>
+                                        <td>Michael Chen</td>
+                                        <td>Yesterday</td>
+                                        <td>$890</td>
+                                        <td><span class="status processing">Dispatched</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id">#BTQ-1043</td>
+                                        <td>Emma Watson</td>
+                                        <td>Aug 14, 2026</td>
+                                        <td>$1,200</td>
+                                        <td><span class="status completed">Delivered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id">#BTQ-1042</td>
+                                        <td>Oliver Queen</td>
+                                        <td>Aug 12, 2026</td>
+                                        <td>$3,600</td>
+                                        <td><span class="status pending">Fitting Needed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget order-feature gs-card">
+                        <img src="./asset/s19.webp" alt="Premium Packaging">
+                        <div class="feature-overlay">
+                            <span class="badge">Standard</span>
+                            <h3>Bespoke Packaging</h3>
+                            <p>Ensure all outgoing suits use the new velvet-lined boxes.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget order-alerts-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Action Required</h3>
+                        </div>
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <i class="fas fa-plane-departure" style="color: #E53E3E;"></i>
+                                <div class="alert-info">
+                                    <h4>#BTQ-1038 Delayed</h4>
+                                    <p>International shipping hold (Customs).</p>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-undo-alt" style="color: #D69E2E;"></i>
+                                <div class="alert-info">
+                                    <h4>Return #RET-09</h4>
+                                    <p>Awaiting quality inspection.</p>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-exclamation-triangle" style="color: #E53E3E;"></i>
+                                <div class="alert-info">
+                                    <h4>Fabric Shortage</h4>
+                                    <p>Order #BTQ-1045 needs Italian Silk.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget order-status-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Order Pipeline</h3>
+                        </div>
+                        <div class="status-bars">
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>Received</span> <span>100%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%; background: #CBD5E0;"></div>
+                                </div>
+                            </div>
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>In Tailoring</span> <span>65%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%; background: var(--primary-orange);"></div>
+                                </div>
+                            </div>
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>Ready to Ship</span> <span>40%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%; background: #D69E2E;"></div>
+                                </div>
+                            </div>
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>Delivered</span> <span>25%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 25%; background: #38A169;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget order-regions-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Top Destinations</h3>
+                        </div>
+                        <div class="region-list">
+                            <div class="region-item">
+                                <span class="region-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span class="region-name">New York, USA</span>
+                                <span class="region-count">142 Orders</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span class="region-name">London, UK</span>
+                                <span class="region-count">98 Orders</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span class="region-name">Paris, France</span>
+                                <span class="region-count">75 Orders</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span class="region-name">Dubai, UAE</span>
+                                <span class="region-count">56 Orders</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-appointments" class="content-tab">
+                <div class="appointments-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="far fa-calendar-check"></i></div>
+                            <div class="kpi-info">
+                                <p>Total Bookings (Aug)</p>
+                                <h3>142</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +15%</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-user-clock"></i></div>
+                            <div class="kpi-info">
+                                <p>Today's Fittings</p>
+                                <h3>12</h3>
+                                <span class="trend" style="color: #D69E2E;"><i class="fas fa-circle"></i> 4
+                                    Completed</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="far fa-clock"></i></div>
+                            <div class="kpi-info">
+                                <p>Available Slots</p>
+                                <h3>5</h3>
+                                <span class="trend" style="color: #E53E3E;"><i class="fas fa-bolt"></i> Filling
+                                    fast</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget appt-schedule-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Today's Schedule</h3>
+                            <a href="404page.html" class="view-all">View Full Calendar</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="recent-table appt-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Client Name</th>
+                                        <th>Stylist</th>
+                                        <th>Session Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="appt-time">10:30 AM</td>
+                                        <td>Eleanor Vance</td>
+                                        <td>Sarah J.</td>
+                                        <td>Bridal Fitting</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="appt-time">01:00 PM</td>
+                                        <td>Arthur Pendragon</td>
+                                        <td>Michael R.</td>
+                                        <td>Bespoke Suit</td>
+                                        <td><span class="status processing">In Progress</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="appt-time">03:30 PM</td>
+                                        <td>Diana Prince</td>
+                                        <td>Sarah J.</td>
+                                        <td>Style Consultation</td>
+                                        <td><span class="status pending">Waiting</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="appt-time">05:00 PM</td>
+                                        <td>Bruce Wayne</td>
+                                        <td>David K.</td>
+                                        <td>Measurements</td>
+                                        <td><span class="status pending">Upcoming</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget appt-feature gs-card">
+                        <img src="./asset/s11.webp" alt="VIP Fitting Lounge">
+                        <div class="feature-overlay">
+                            <span class="badge">VIP Room 1</span>
+                            <h3>Lounge Status: <span style="color:#C6F6D5;">Available</span></h3>
+                            <p>Prepare for the 03:30 PM Style Consultation.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget appt-requests-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Pending Requests</h3>
+                        </div>
+                        <div class="request-list">
+                            <div class="request-item">
+                                <div class="req-info">
+                                    <h4>Jessica Jones</h4>
+                                    <p>Aug 18, 11:00 AM - Evening Wear</p>
+                                </div>
+                                <div class="req-actions">
+                                    <button class="btn-approve" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-check"></i></button>
+                                    <button class="btn-decline" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="request-item">
+                                <div class="req-info">
+                                    <h4>Clark Kent</h4>
+                                    <p>Aug 19, 02:00 PM - Tuxedo</p>
+                                </div>
+                                <div class="req-actions">
+                                    <button class="btn-approve" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-check"></i></button>
+                                    <button class="btn-decline" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget appt-types-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Session Breakdown</h3>
+                        </div>
+                        <div class="status-bars">
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>Bespoke Tailoring</span> <span>50%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 50%; background: var(--primary-orange);"></div>
+                                </div>
+                            </div>
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>Bridal & Wedding</span> <span>30%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%; background: #38A169;"></div>
+                                </div>
+                            </div>
+                            <div class="status-bar-item">
+                                <div class="status-label"><span>Style Consultation</span> <span>20%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 20%; background: #D69E2E;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget appt-feedback-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Recent Feedback</h3>
+                        </div>
+                        <div class="feedback-list">
+                            <div class="feedback-item">
+                                <div class="fb-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <p>"Sarah was amazing! She perfectly understood my style needs."</p>
+                                <span>- Eleanor V.</span>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="fb-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                                <p>"Great fitting session, but we started 10 mins late."</p>
+                                <span>- Arthur P.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-reports" class="content-tab">
+                <div class="reports-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-chart-pie"></i></div>
+                            <div class="kpi-info">
+                                <p>Avg. Order Value</p>
+                                <h3>$2,150</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +8.5% YoY</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-bullseye"></i></div>
+                            <div class="kpi-info">
+                                <p>Conversion Rate</p>
+                                <h3>4.2%</h3>
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> +1.2%</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-users-cog"></i></div>
+                            <div class="kpi-info">
+                                <p>Customer Retention</p>
+                                <h3>68%</h3>
+                                <span class="trend" style="color: #D69E2E;"><i class="fas fa-minus"></i> Steady</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget report-sales-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Revenue by Category</h3>
+                            <select class="widget-select">
+                                <option>This Month</option>
+                                <option>Last Month</option>
+                            </select>
+                        </div>
+                        <div class="sales-bars">
+                            <div class="sales-bar-item">
+                                <div class="sales-label"><span>Bespoke Tailoring</span> <span>$52,000</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%; background: var(--primary-orange);"></div>
+                                </div>
+                            </div>
+                            <div class="sales-bar-item">
+                                <div class="sales-label"><span>Ready-to-Wear</span> <span>$34,500</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 55%; background: #38A169;"></div>
+                                </div>
+                            </div>
+                            <div class="sales-bar-item">
+                                <div class="sales-label"><span>Luxury Accessories</span> <span>$21,200</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 35%; background: #D69E2E;"></div>
+                                </div>
+                            </div>
+                            <div class="sales-bar-item">
+                                <div class="sales-label"><span>Bridal Collections</span> <span>$16,800</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 25%; background: #E53E3E;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget report-feature gs-card">
+                        <img src="./asset/s9.webp" alt="Fashion Trends">
+                        <div class="feature-overlay">
+                            <span class="badge">New Report</span>
+                            <h3>Autumn 2026 Trends</h3>
+                            <p>In-depth analysis of seasonal color palettes and fabric preferences.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget report-stylists-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Top Stylists</h3>
+                        </div>
+                        <div class="stylist-list">
+                            <div class="stylist-item">
+                                <div class="stylist-avatar">SJ</div>
+                                <div class="stylist-info">
+                                    <h4>Sarah Jenkins</h4>
+                                    <p>42 Consultations</p>
+                                </div>
+                                <div class="stylist-revenue">$18k</div>
+                            </div>
+                            <div class="stylist-item">
+                                <div class="stylist-avatar" style="background: #38A169;">MR</div>
+                                <div class="stylist-info">
+                                    <h4>Michael Ross</h4>
+                                    <p>38 Consultations</p>
+                                </div>
+                                <div class="stylist-revenue">$15k</div>
+                            </div>
+                            <div class="stylist-item">
+                                <div class="stylist-avatar" style="background: #D69E2E;">DK</div>
+                                <div class="stylist-info">
+                                    <h4>David Kim</h4>
+                                    <p>29 Consultations</p>
+                                </div>
+                                <div class="stylist-revenue">$11k</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget report-demo-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Age Demographics</h3>
+                        </div>
+                        <div class="demo-chart">
+                            <div class="demo-item">
+                                <span class="demo-age">18-24</span>
+                                <div class="demo-bar-container">
+                                    <div class="demo-bar" style="width: 15%; background: #A0AEC0;"></div>
+                                </div>
+                                <span class="demo-pct">15%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-age">25-34</span>
+                                <div class="demo-bar-container">
+                                    <div class="demo-bar" style="width: 45%; background: var(--primary-orange);"></div>
+                                </div>
+                                <span class="demo-pct">45%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-age">35-44</span>
+                                <div class="demo-bar-container">
+                                    <div class="demo-bar" style="width: 25%; background: #38A169;"></div>
+                                </div>
+                                <span class="demo-pct">25%</span>
+                            </div>
+                            <div class="demo-item">
+                                <span class="demo-age">45+</span>
+                                <div class="demo-bar-container">
+                                    <div class="demo-bar" style="width: 15%; background: #D69E2E;"></div>
+                                </div>
+                                <span class="demo-pct">15%</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget report-downloads-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Exported Reports</h3>
+                        </div>
+                        <div class="download-list">
+                            <div class="download-item">
+                                <div class="dl-icon"><i class="far fa-file-pdf"></i></div>
+                                <div class="dl-info">
+                                    <h4>Q2 Financial Summary</h4>
+                                    <p>Generated Today</p>
+                                </div>
+                                <button class="dl-btn" onclick="window.location.href='404page.html'"><i
+                                        class="fas fa-download"></i></button>
+                            </div>
+                            <div class="download-item">
+                                <div class="dl-icon"><i class="far fa-file-excel"></i></div>
+                                <div class="dl-info">
+                                    <h4>Inventory Status</h4>
+                                    <p>Generated Yesterday</p>
+                                </div>
+                                <button class="dl-btn" onclick="window.location.href='404page.html'"><i
+                                        class="fas fa-download"></i></button>
+                            </div>
+                            <div class="download-item">
+                                <div class="dl-icon"><i class="far fa-file-pdf"></i></div>
+                                <div class="dl-info">
+                                    <h4>Client Feedback Log</h4>
+                                    <p>Generated Aug 10</p>
+                                </div>
+                                <button class="dl-btn" onclick="window.location.href='404page.html'"><i
+                                        class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const storedEmail = localStorage.getItem('userEmail') || "admin@boutique.com";
+            let extractedName = storedEmail.split('@')[0];
+            extractedName = extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+
+            document.getElementById("userNameDisplay").textContent = extractedName;
+            document.getElementById("userEmailDisplay").textContent = storedEmail;
+
+            const tl = gsap.timeline();
+
+            if (window.innerWidth > 992) {
+            }
+
+            tl.from(".gs-topbar", { y: -50, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.4")
+                .from(".active-tab .gs-card", { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, "-=0.2");
+
+        });
+
+        function switchTab(tabId, element, pageTitle) {
+
+            document.querySelectorAll('.content-tab').forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active-tab');
+            element.classList.add('active');
+
+            document.getElementById('dynamic-page-title').innerText = pageTitle;
+
+            gsap.from(`#${tabId} .gs-card`, {
+                y: 30,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: "power2.out"
+            });
+
+            if (window.innerWidth <= 992) {
+                toggleSidebar();
+            }
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            sidebar.classList.toggle('mobile-open');
+
+            if (sidebar.classList.contains('mobile-open')) {
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                overlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('userEmail');
+
+            gsap.to("body", {
+                opacity: 0, duration: 0.5, onComplete: () => {
+                    window.location.href = "login.html";
+                }
+            });
+        }
+
+
+        const ctx = document.getElementById('revenueChart');
+        if (ctx && typeof Chart !== 'undefined') {
+            new Chart(ctx.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [30000, 45000, 40000, 60000, 55000, 80000],
+                        borderColor: '#F26B0F',
+                        backgroundColor: 'rgba(242, 107, 15, 0.1)',
+                        borderWidth: 3, fill: true, tension: 0.4,
+                        pointBackgroundColor: '#FFFFFF', pointBorderColor: '#F26B0F', pointBorderWidth: 2, pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { borderDash: [5, 5] } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

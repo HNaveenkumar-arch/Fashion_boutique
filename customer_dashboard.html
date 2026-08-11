@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - Customer Dashboard</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="customer_dashboard.css">
+</head>
+
+<body>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+    <nav class="sidebar gs-sidebar" id="sidebar">
+
+
+        <div class="logo-container">
+            <h1>Boutique.</h1>
+            <p>Customer Portal</p>
+        </div>
+
+
+        <div class="nav-sections">
+            <a class="nav-item active" onclick="switchTab('tab-my-dashboard', this, 'My Dashboard')">
+                <i class="fas fa-gem"></i> My Dashboard
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-my-orders', this, 'My Orders')">
+                <i class="fas fa-shopping-bag"></i> My Orders
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-wishlist', this, 'Wishlist')">
+                <i class="far fa-heart"></i> Wishlist
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-style-prefs', this, 'Style Preferences')">
+                <i class="fas fa-cut"></i> Style Preferences
+            </a>
+            <a class="nav-item" onclick="switchTab('tab-profile', this, 'Profile & Settings')">
+                <i class="fas fa-sliders-h"></i> Profile & Settings
+            </a>
+        </div>
+
+
+        <div class="sidebar-profile">
+            <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name" id="userNameDisplay">Customer</span>
+                <span class="profile-email" id="userEmailDisplay">client@boutique.com</span>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <main class="main-content">
+
+
+        <header class="topbar gs-topbar">
+            <div class="topbar-left">
+                <div class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+                <h2 id="dynamic-page-title" class="page-title">My Dashboard</h2>
+            </div>
+
+
+            <div class="topbar-actions">
+                <a href="index.html" class="header-btn btn-home">
+                    <i class="fas fa-home"></i> <span>Back to Home</span>
+                </a>
+                <button onclick="logout()" class="header-btn btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </button>
+            </div>
+        </header>
+
+
+        <div class="dashboard-body">
+
+
+            <div id="tab-my-dashboard" class="content-tab active-tab">
+                <div class="overview-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="far fa-heart"></i></div>
+                            <div class="kpi-info">
+                                <p>Saved Looks</p>
+                                <h3>12</h3>
+                                <span class="trend positive"><i class="fas fa-check"></i> Ready to shop</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-shopping-bag"></i></div>
+                            <div class="kpi-info">
+                                <p>Active Orders</p>
+                                <h3>2</h3>
+                                <span class="trend" style="color: #D69E2E;"><i class="fas fa-truck"></i> In
+                                    transit</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-gem"></i></div>
+                            <div class="kpi-info">
+                                <p>Reward Points</p>
+                                <h3>450</h3>
+                                <span class="trend positive"><i class="fas fa-crown"></i> VIP Tier</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-order-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Current Order: #BTQ-1045</h3>
+                            <a href="404page.html" class="view-all">Track Order</a>
+                        </div>
+                        <div class="order-status">
+                            <div class="order-item-desc">
+                                <div class="item-img"><i class="fas fa-cut"></i></div>
+                                <div class="item-text">
+                                    <h4>Bespoke Evening Gown</h4>
+                                    <p>Custom Measurement &middot; Italian Silk</p>
+                                </div>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                            <div class="order-status-text">
+                                <p>Status: <span class="highlight">In Tailoring</span></p>
+                                <p>Est. Delivery: <strong>Aug 20, 2026</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-appt-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Next Appointment</h3>
+                        </div>
+                        <div class="appt-card">
+                            <div class="appt-date">
+                                <span class="month">AUG</span>
+                                <span class="day">18</span>
+                            </div>
+                            <div class="appt-details">
+                                <h4>Final Fitting</h4>
+                                <p><i class="far fa-clock"></i> 10:30 AM with Sarah J.</p>
+                            </div>
+                        </div>
+                        <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                            style="width: 100%; margin-top: 15px;">Reschedule</button>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget cust-feature gs-card">
+                        <img src="./asset/s19.webp" alt="Autumn Edit">
+                        <div class="feature-overlay">
+                            <span class="badge">Curated For You</span>
+                            <h3>The Autumn Edit</h3>
+                            <p>Explore luxury pieces matching your style profile.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-wishlist-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Recent Saves</h3>
+                            <a href="404page.html" class="view-all">View All</a>
+                        </div>
+                        <div class="wishlist-gallery">
+                            <div class="wl-item">
+                                <img src="./asset/s40.webp" alt="Dress">
+                            </div>
+                            <div class="wl-item">
+                                <img src="./asset/s22.webp" alt="Bag">
+                            </div>
+                            <div class="wl-item">
+                                <img src="./asset/s21.webp" alt="Suit">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-profile-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Style Profile</h3>
+                        </div>
+                        <div class="profile-completeness">
+                            <div class="completeness-circle">
+                                <span>85%</span>
+                            </div>
+                            <div class="completeness-text">
+                                <h4>Almost Complete!</h4>
+                                <p>Update your summer measurements for better bespoke recommendations.</p>
+                                <button class="btn-outline-small" onclick="window.location.href='404page.html'">Update
+                                    Profile</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-my-orders" class="content-tab">
+                <div class="cust-orders-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-shopping-bag"></i></div>
+                            <div class="kpi-info">
+                                <p>Total Orders</p>
+                                <h3>18</h3>
+                                <span class="trend positive"><i class="fas fa-check-circle"></i> Lifetime
+                                    purchases</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-box-open"></i></div>
+                            <div class="kpi-info">
+                                <p>Active Orders</p>
+                                <h3>1</h3>
+                                <span class="trend" style="color: #D69E2E;"><i class="fas fa-spinner"></i> In
+                                    Tailoring</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-undo"></i></div>
+                            <div class="kpi-info">
+                                <p>Returns</p>
+                                <h3>0</h3>
+                                <span class="trend positive"><i class="fas fa-shield-alt"></i> Perfect fit
+                                    guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-tracker-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Track Current Order: #BTQ-1045</h3>
+                            <span class="badge"
+                                style="background: var(--primary-orange); color: white; padding: 5px 10px; border-radius: 20px; font-size: 11px;">Est.
+                                Delivery: Aug 20</span>
+                        </div>
+                        <div class="tracker-product">
+                            <img src="./asset/s30.webp" alt="Gown">
+                            <div class="tracker-prod-info">
+                                <h4>Bespoke Evening Gown</h4>
+                                <p>Italian Silk &middot; Midnight Blue</p>
+                            </div>
+                        </div>
+                        <div class="tracker-steps">
+                            <div class="step completed">
+                                <div class="step-icon"><i class="fas fa-check"></i></div>
+                                <p>Ordered</p>
+                            </div>
+                            <div class="step active">
+                                <div class="step-icon"><i class="fas fa-cut"></i></div>
+                                <p>Tailoring</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-icon"><i class="fas fa-search"></i></div>
+                                <p>Quality Check</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-icon"><i class="fas fa-truck"></i></div>
+                                <p>Shipped</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-icon"><i class="fas fa-box"></i></div>
+                                <p>Delivered</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget cust-order-feature gs-card">
+                        <img src="./asset/s17.webp" alt="Matching Accessories">
+                        <div class="feature-overlay">
+                            <span class="badge">Complete The Look</span>
+                            <h3>Luxury Accessories</h3>
+                            <p>Add matching handbags to your upcoming delivery without extra shipping costs.</p>
+                            <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                style="width: max-content; margin-top: 10px; border-color: white; color: white;">Shop
+                                Accessories</button>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-history-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Order History</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="recent-table order-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Product</th>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="order-id">#BTQ-0982</td>
+                                        <td>Classic Wool Suit</td>
+                                        <td>May 12, 2026</td>
+                                        <td>$1,200</td>
+                                        <td><span class="status completed">Delivered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id">#BTQ-0845</td>
+                                        <td>Summer Linen Blazer</td>
+                                        <td>Mar 05, 2026</td>
+                                        <td>$450</td>
+                                        <td><span class="status completed">Delivered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id">#BTQ-0712</td>
+                                        <td>Silk Tie Collection</td>
+                                        <td>Dec 18, 2025</td>
+                                        <td>$180</td>
+                                        <td><span class="status completed">Delivered</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-invoices-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Recent Invoices</h3>
+                        </div>
+                        <div class="invoice-list">
+                            <div class="invoice-item">
+                                <div class="inv-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                                <div class="inv-info">
+                                    <h4>Invoice #INV-0982</h4>
+                                    <p>May 12, 2026</p>
+                                </div>
+                                <button class="dl-btn" title="Download PDF"
+                                    onclick="window.location.href='404page.html'"><i
+                                        class="fas fa-download"></i></button>
+                            </div>
+                            <div class="invoice-item">
+                                <div class="inv-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                                <div class="inv-info">
+                                    <h4>Invoice #INV-0845</h4>
+                                    <p>Mar 05, 2026</p>
+                                </div>
+                                <button class="dl-btn" title="Download PDF"
+                                    onclick="window.location.href='404page.html'"><i
+                                        class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget cust-support-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Need Help?</h3>
+                        </div>
+                        <div class="support-content">
+                            <p>Not completely satisfied with your bespoke piece? Our stylists are here to ensure the
+                                perfect fit.</p>
+                            <div class="support-actions">
+                                <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                    style="width: 100%; margin-bottom: 10px;"><i class="fas fa-undo"></i> Request
+                                    Alteration</button>
+                                <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                    style="width: 100%; background: var(--primary-orange); color: white;"><i
+                                        class="fas fa-comment-dots"></i> Contact Stylist</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-wishlist" class="content-tab">
+                <div class="cust-wishlist-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="far fa-heart"></i></div>
+                            <div class="kpi-info">
+                                <p>Saved Items</p>
+                                <h3>24</h3>
+                                <span class="trend positive"><i class="fas fa-plus"></i> 3 added this week</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-tag"></i></div>
+                            <div class="kpi-info">
+                                <p>Price Drops</p>
+                                <h3>2</h3>
+                                <span class="trend" style="color: #38A169;"><i class="fas fa-arrow-down"></i> On sale
+                                    now</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-hourglass-half"></i></div>
+                            <div class="kpi-info">
+                                <p>Low Stock</p>
+                                <h3>4</h3>
+                                <span class="trend" style="color: #E53E3E;"><i class="fas fa-exclamation"></i> Selling
+                                    fast</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget wishlist-items-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Your Curated Collection</h3>
+                            <a href="404page.html" class="view-all">Sort by: Newest</a>
+                        </div>
+                        <div class="wishlist-product-grid">
+
+                            <div class="wishlist-card">
+                                <div class="wish-img">
+                                    <img src="./asset/s40.webp" alt="Dress">
+                                    <button class="remove-wish" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <div class="wish-details">
+                                    <h4>A-Line Midi Dress</h4>
+                                    <p>$450</p>
+                                    <button class="btn-outline-small btn-cart"
+                                        onclick="window.location.href='404page.html'">Add to Cart</button>
+                                </div>
+                            </div>
+
+                            <div class="wishlist-card">
+                                <div class="wish-img">
+                                    <img src="./asset/s31.webp" alt="Bag">
+                                    <button class="remove-wish" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <div class="wish-details">
+                                    <h4>Leather Tote Bag</h4>
+                                    <p>$850</p>
+                                    <button class="btn-outline-small btn-cart"
+                                        onclick="window.location.href='404page.html'">Add to Cart</button>
+                                </div>
+                            </div>
+
+                            <div class="wishlist-card">
+                                <div class="wish-img">
+                                    <img src="./asset/s15.webp" alt="Suit">
+                                    <button class="remove-wish" onclick="window.location.href='404page.html'"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <div class="wish-details">
+                                    <h4>Bespoke Wool Suit</h4>
+                                    <p>$1,200</p>
+                                    <button class="btn-outline-small btn-cart"
+                                        onclick="window.location.href='404page.html'">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget wish-feature gs-card">
+                        <img src="./asset/s11.webp" alt="Runway Look">
+                        <div class="feature-overlay">
+                            <span class="badge">Perfect Match</span>
+                            <h3>Complete Your Look</h3>
+                            <p>Based on your wishlist, our stylists recommend this runway look.</p>
+                            <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                style="width: max-content; margin-top: 10px; border-color: white; color: white;">View
+                                Lookbook</button>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget wish-alerts-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Price Drops</h3>
+                        </div>
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <i class="fas fa-tag" style="color: #38A169;"></i>
+                                <div class="alert-info">
+                                    <h4>Silk Blouse</h4>
+                                    <p>Dropped from $350 to $290</p>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-tag" style="color: #38A169;"></i>
+                                <div class="alert-info">
+                                    <h4>Summer Fedora</h4>
+                                    <p>15% Off limited time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget wish-stock-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Low Stock</h3>
+                        </div>
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <i class="fas fa-hourglass-half" style="color: #E53E3E;"></i>
+                                <div class="alert-info">
+                                    <h4>Classic Wool Suit</h4>
+                                    <p>Only 2 items left in your size</p>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-hourglass-half" style="color: #E53E3E;"></i>
+                                <div class="alert-info">
+                                    <h4>Leather Loafers</h4>
+                                    <p>Last pair available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget wish-consult-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Need Advice?</h3>
+                        </div>
+                        <div class="support-content">
+                            <p>Not sure if these pieces go together? Send your wishlist to a personal stylist for a
+                                quick review.</p>
+                            <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                style="width: 100%; background: var(--primary-orange); color: white;"><i
+                                    class="fas fa-paper-plane"></i> Send for Review</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-style-prefs" class="content-tab">
+                <div class="cust-style-grid">
+
+
+                    <div class="dash-widget kpi-widget gs-card">
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-ruler-vertical"></i></div>
+                            <div class="kpi-info">
+                                <p>Latest Fit Profile</p>
+                                <h3>Classic Tailored</h3>
+                                <span class="trend positive"><i class="fas fa-check-circle"></i> Updated 2 months
+                                    ago</span>
+                            </div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-icon"><i class="fas fa-tshirt"></i></div>
+                            <div class="kpi-info">
+                                <p>Standard Size</p>
+                                <h3>42R / Medium</h3>
+                                <span class="trend" style="color: #D69E2E;"><i class="fas fa-info-circle"></i> Baseline
+                                    size</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget style-color-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Color Palette</h3>
+                        </div>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background: #0C1E14;" title="Forest Green"></div>
+                            <div class="color-swatch" style="background: #1A365D;" title="Navy Blue"></div>
+                            <div class="color-swatch" style="background: #744210;" title="Deep Brown"></div>
+                            <div class="color-swatch" style="background: #E2E8F0;" title="Light Grey"></div>
+                            <div class="color-swatch" style="background: #F26B0F;" title="Burnt Orange"></div>
+                        </div>
+                        <p class="color-note">Your bespoke recommendations will prioritize these tones.</p>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget style-feature gs-card">
+                        <img src="./asset/s4.webp" alt="Style Inspiration">
+                        <div class="feature-overlay">
+                            <span class="badge">Moodboard</span>
+                            <h3>Modern Elegance</h3>
+                            <p>Your current aesthetic leans towards sharp, minimalist tailoring.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget style-brands-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Preferred Aesthetics</h3>
+                        </div>
+                        <div class="brand-tags">
+                            <span class="brand-tag">Tom Ford (Tailoring)</span>
+                            <span class="brand-tag">Brunello Cucinelli (Casual)</span>
+                            <span class="brand-tag">Loro Piana (Fabrics)</span>
+                            <span class="brand-tag">Minimalist</span>
+                            <span class="brand-tag">Monochrome</span>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget style-fabric-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Fabric Choices</h3>
+                        </div>
+                        <div class="fabric-list">
+                            <div class="fabric-item loves">
+                                <i class="fas fa-heart"></i>
+                                <div class="fab-info">
+                                    <h4>Italian Wool, Silk, Linen</h4>
+                                    <p>Preferred for suits & shirts</p>
+                                </div>
+                            </div>
+                            <div class="fabric-item avoids">
+                                <i class="fas fa-times-circle"></i>
+                                <div class="fab-info">
+                                    <h4>Polyester, Heavy Tweed</h4>
+                                    <p>Avoid in future recommendations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget style-update-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Measurements</h3>
+                        </div>
+                        <div class="support-content">
+                            <p>Has your fit changed? Book a quick 15-minute 3D scan or in-person measurement session.
+                            </p>
+                            <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                style="width: 100%; background: var(--primary-orange); color: white;"><i
+                                    class="fas fa-calendar-plus"></i> Book Fitting Session</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="tab-profile" class="content-tab">
+                <div class="cust-profile-settings-grid">
+
+
+                    <div class="dash-widget profile-info-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Personal Information</h3>
+                            <a href="404page.html" class="view-all"><i class="fas fa-pen"></i> Edit Profile</a>
+                        </div>
+                        <div class="profile-card-details">
+                            <div class="profile-avatar-large">
+                                <img src="./asset/s28.webp" alt="User">
+                            </div>
+                            <div class="profile-text-details">
+                                <h4>Elena Vance</h4>
+                                <p><i class="far fa-envelope"></i> elena.vance@example.com</p>
+                                <p><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</p>
+                                <span class="member-since">Member since Jan 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget feature-widget profile-vip-feature gs-card">
+                        <img src="./asset/s16.webp" alt="VIP Card">
+                        <div class="feature-overlay">
+                            <span class="badge" style="background: #D69E2E; color: #FFF;">Gold Tier</span>
+                            <h3>Boutique VIP</h3>
+                            <p>You are 50 points away from unlocking Platinum tier benefits.</p>
+                            <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                style="width: max-content; margin-top: 10px; border-color: white; color: white;">View
+                                Benefits</button>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget profile-address-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Shipping Address</h3>
+                            <a href="404page.html" class="view-all">Manage</a>
+                        </div>
+                        <div class="address-box">
+                            <div class="address-header">
+                                <span class="address-type"><i class="fas fa-home"></i> Home (Default)</span>
+                            </div>
+                            <p>123 Luxury Lane, Suite 400<br>Beverly Hills, CA 90210<br>United States</p>
+                            <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                style="margin-top: 15px; width: 100%;">Add New Address</button>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget profile-payment-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Payment Methods</h3>
+                            <a href="404page.html" class="view-all">Add New</a>
+                        </div>
+                        <div class="payment-list">
+                            <div class="payment-item">
+                                <div class="pay-icon"><i class="fab fa-cc-mastercard"></i></div>
+                                <div class="pay-info">
+                                    <h4>Mastercard ending in 4242</h4>
+                                    <p>Expires 12/28</p>
+                                </div>
+                                <span class="default-tag">Default</span>
+                            </div>
+                            <div class="payment-item">
+                                <div class="pay-icon"><i class="fab fa-cc-apple-pay"></i></div>
+                                <div class="pay-info">
+                                    <h4>Apple Pay</h4>
+                                    <p>Connected</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget profile-notif-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Notifications</h3>
+                        </div>
+                        <div class="notif-list">
+                            <div class="notif-item">
+                                <div class="notif-info">
+                                    <h4>Order Updates</h4>
+                                    <p>SMS and Email tracking</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="notif-item">
+                                <div class="notif-info">
+                                    <h4>Exclusive Offers</h4>
+                                    <p>New arrivals and sales</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="notif-item">
+                                <div class="notif-info">
+                                    <h4>WhatsApp Styling</h4>
+                                    <p>Direct chat with stylists</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dash-widget profile-security-widget gs-card">
+                        <div class="widget-header">
+                            <h3>Security & Privacy</h3>
+                        </div>
+                        <div class="security-list">
+                            <div class="security-item">
+                                <div class="sec-info">
+                                    <h4>Password</h4>
+                                    <p>Last changed 3 months ago</p>
+                                </div>
+                                <button class="btn-outline-small"
+                                    onclick="window.location.href='404page.html'">Update</button>
+                            </div>
+                            <div class="security-item">
+                                <div class="sec-info">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Protect your account</p>
+                                </div>
+                                <button class="btn-outline-small" onclick="window.location.href='404page.html'"
+                                    style="background: var(--primary-orange); color: white;">Enable</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const storedEmail = localStorage.getItem('userEmail') || "client@boutique.com";
+            let extractedName = storedEmail.split('@')[0];
+            extractedName = extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+
+
+            document.getElementById("userNameDisplay").textContent = extractedName;
+            document.getElementById("userEmailDisplay").textContent = storedEmail;
+
+
+            const tl = gsap.timeline();
+
+
+            if (window.innerWidth > 992) {
+
+            }
+
+
+            tl.from(".gs-topbar", { y: -50, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.4")
+                .from(".active-tab .gs-card", { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, "-=0.2");
+
+        });
+
+
+        function switchTab(tabId, element, pageTitle) {
+
+
+            document.querySelectorAll('.content-tab').forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.remove('active');
+            });
+
+
+            document.getElementById(tabId).classList.add('active-tab');
+            element.classList.add('active');
+
+
+            document.getElementById('dynamic-page-title').innerText = pageTitle;
+
+
+            gsap.from(`#${tabId} .gs-card`, {
+                y: 30,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: "power2.out"
+            });
+
+
+            if (window.innerWidth <= 992) {
+                toggleSidebar();
+            }
+        }
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            sidebar.classList.toggle('mobile-open');
+
+            if (sidebar.classList.contains('mobile-open')) {
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+
+        function logout() {
+
+            localStorage.removeItem('userEmail');
+
+
+            gsap.to("body", {
+                opacity: 0, duration: 0.5, onComplete: () => {
+                    window.location.href = "login.html";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
